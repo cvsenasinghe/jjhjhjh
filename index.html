@@ -1,3 +1,82 @@
-<html>
-  <body><title>yo wassup</title></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="SandPro offers fast and reliable sand delivery services for construction and landscaping." />
+  <title>SandPro Delivery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">SandPro</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Fast, Reliable Sand Delivery</h1>
+    <p>Your trusted source for construction and landscaping sand.</p>
+    <a href="#contact" class="btn">Get a Quote</a>
+  </section>
+
+  <section id="about" class="info-section fade-in">
+    <h2 class="hover-animate">About Us</h2>
+    <p>We deliver high-quality sand for all your needs – whether it's construction, landscaping, or custom bulk orders.</p>
+  </section>
+
+  <section id="services" class="info-section fade-in">
+    <h2 class="hover-animate">Our Services</h2>
+    <ul>
+      <li>Construction Sand</li>
+      <li>Landscaping Sand</li>
+      <li>Bulk Delivery</li>
+    </ul>
+  </section>
+
+  <section id="contact" class="info-section fade-in">
+    <h2 class="hover-animate">Contact Us</h2>
+    <p>Call us at <strong>0773786208</strong> or email <a href="mailto:info@sandpro.com">info@sandpro.com</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 SandPro Delivery. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Background scroll effect
+    window.addEventListener("scroll", () => {
+      const scrollY = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? scrollY / docHeight : 0;
+      const backgroundPos = scrollPercent * 10;
+      document.body.style.backgroundPosition = `${backgroundPos}% ${backgroundPos}%`;
+    });
+
+    // Fade-in observer for sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in-visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Hero animation on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.hero h1').classList.add('hero-visible');
+      document.querySelector('.hero p').classList.add('hero-visible');
+      document.querySelector('.hero .btn').classList.add('hero-visible');
+    });
+  </script>
+</body>
 </html>
+ 
